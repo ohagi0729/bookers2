@@ -5,15 +5,16 @@
         <h2>User info</h2>
         <%= form_with model: @user do |f| %>
           <div class="form-group">
-            <label for="inputName">Name</label><br>
-            <%= f.text_field :name, autofocus: true, id:"inputName", class: 'form-control p-2' %><br>
+            <%= f.label :name %>
+            <%= f.text_field :name, autofocus: true, class: 'form-control p-2' %>
           </div>
           <div class="form-group">
-            <label for="inputImage">Image</label><br>
-            <%= f.file_field :profile_image, accept: "image/*" %><br>
+            <%= f.label :profile_image, "Image" %><br>
+            <%= f.file_field :profile_image, accept: "image/*" %>
           </div>
           <div class="form-group">
-
+            <%= f.label :introduction %>
+            <%= f.text_area :introduction, class: 'form-control p-2' %>
           </div>
           <div class="form-group">
             <%= f.submit "Update User", class: 'btn btn-secondary' %>
