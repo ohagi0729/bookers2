@@ -54,6 +54,9 @@
         <% end %>
         </div>
       </nav>
+      <% if user_signed_in? %>
+        <%= render 'tagsearches/tagsearch' %>
+      <% end %>
     </header>
     <main class="pt-3">
       <div class="mb-3 ml-3">

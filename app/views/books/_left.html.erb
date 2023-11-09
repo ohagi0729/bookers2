@@ -17,6 +17,11 @@
         </table>
           <%= link_to edit_user_path(user), class: 'btn btn-outline-secondary btn-block' do %><i class="fas fa-user-cog"></i><% end %>
 
+        <% unless user.guest_user? %>
+        <div class="row">
+          <%= link_to "",edit_user_path(user),class: "btn btn-outline-secondary btn-block fas fa-user-cog edit_user_#{user.id}" %>
+        </div>
+        <% end %>
 
         <h2 class="mt-3">New book</h2>
         <%= form_with model: book, url: '/books', method: :post do |f| %>
@@ -28,6 +33,10 @@
           <div class="form-group mb-3">
             <p class="mb-2">Opinion</p>
             <%= f.text_area :body, class: 'form-control p-1p-1' %>
+          </div>
+          <div class="form-group">
+            <label>Category</label>
+            <%= f.text_field :category,class: 'form-control book_category' %>
           </div>
           <div>
             <%= f.submit 'Create Book', class: 'btn btn-success' %>
